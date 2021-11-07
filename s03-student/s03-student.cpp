@@ -18,11 +18,11 @@ struct Student
 {
 	wstring imie;
 	wstring nazwisko;
-	wstring numer_indeksu;
+	const wstring numer_indeksu;
 	unsigned char semestr; /* Najmniejsze możliwe słowo dla semestru w jezyku c++ */
 	double srednia;
 
-	Student(wstring imie, wstring nazwisko, wstring numer_indeksu, unsigned char semestr, double srednia)
+	Student(wstring imie, wstring nazwisko, const wstring numer_indeksu, unsigned char semestr, double srednia) : numer_indeksu(numer_indeksu)
 	{
 		if (imie.length() < 2 || imie.length() > 32)
 		{
@@ -46,7 +46,6 @@ struct Student
 
 		this->imie = imie;
 		this->nazwisko = nazwisko;
-		this->numer_indeksu = numer_indeksu;
 		this->semestr = semestr;
 		this->srednia = srednia;
 	}
